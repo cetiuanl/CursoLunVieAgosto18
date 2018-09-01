@@ -16,7 +16,8 @@ namespace PruebasUnitarias
 
             try
             {
-                Producto nuevoProd = new Producto(0, "Test Nombre", "Test Descripcion", 100, 120, 50);
+                Producto nuevoProd = new Producto(0, "Test Nombre", 
+                    "Test Descripcion", 100, 120, 50);
                 nuevoProd.guardar();
                 result = true;
             }

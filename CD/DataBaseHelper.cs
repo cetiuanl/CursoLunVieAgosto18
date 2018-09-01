@@ -8,6 +8,7 @@ namespace CD
 {
     public static class DataBaseHelper
     {
+        //static string _connectionString = "Server=myServerName\\myInstanceName;Database=myDataBase;User Id=myUsername;Password=myPassword;";
 #if DEBUG
         static string _connectionString = "Server=148.234.16.35;Database=dbDecathlon;User Id=ceti;Password=ceti;";
 #else

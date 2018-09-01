@@ -17,14 +17,14 @@ namespace CN
         private static string nombreSPS = "dbo.SPSProductos";
 
         #region Propiedades        
-        public int idProducto { get; private set; }
-        public string nombre { get; private set; }
-        public string descripcion { get; private set; }
-        public decimal precioCompra { get; private set; }
-        public decimal precioVenta { get; private set; }
-        public int inventario { get; private set; }
-        public DateTime fechaCreacion { get; private set; }
-        public bool esActivo { get; private set; }
+        public int idProducto { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public decimal precioCompra { get; set; }
+        public decimal precioVenta { get; set; }
+        public int inventario { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public bool esActivo { get; set; }
         #endregion
 
         #region Constructores
@@ -52,6 +52,11 @@ namespace CN
             this.inventario = inventario;
         }
 
+        public Producto()
+        {
+
+        }
+
         public Producto(DataRow fila)
         {
             this.idProducto = fila.Field<int>("idProducto");
@@ -68,6 +73,12 @@ namespace CN
         #region Metodos y Funciones
         public void guardar()
         {
+            string mensaje = validar();
+            if (mensaje.Length > 0)
+            {
+                throw new Exception(mensaje);
+            }
+
             List<SqlParameter> parametros = new List<SqlParameter>();
             parametros.Add(new SqlParameter("@nombre", nombre));
             parametros.Add(new SqlParameter("@descripcion", descripcion));
@@ -100,9 +111,9 @@ namespace CN
             string mensaje = "";
             if (nombre.Length < 1) { mensaje += "El campo 'Nombre' es invalido. \n"; }
             if (descripcion.Length < 1) { mensaje += "El campo 'Descripcion' es invalido. \n"; }
-            if (precioCompra < 0) { mensaje += "El campo 'Precio Compra' es invalido. \n"; }
-            if (precioVenta < 0) { mensaje += "El campo 'Precio Venta' es invalido. \n"; }
-            if (inventario < 0) { mensaje += "El campo 'Inventario' es invalido. \n"; }
+            if (precioCompra < 1) { mensaje += "El campo 'Precio Compra' es invalido. \n"; }
+            if (precioVenta < 1) { mensaje += "El campo 'Precio Venta' es invalido. \n"; }
+            if (inventario < 1) { mensaje += "El campo 'Inventario' es invalido. \n"; }
             return mensaje;
         }
         public static List<Producto> traerTodos(bool soloActivos = false)

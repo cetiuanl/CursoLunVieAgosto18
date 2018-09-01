@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CN
 {
-    public class Factura : ITabla
+    public class Factura
     {        
         private string nombreSPI = "dbo.SPIFacturas";
         private static string nombreSPC = "dbo.SPCFacturas";
@@ -44,18 +44,14 @@ namespace CN
         #endregion
 
         #region Metodos y Funciones
-        public void guardar()
+        public int guardar()
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
             parametros.Add(new SqlParameter("@idCliente", idCliente));
             parametros.Add(new SqlParameter("@iva", iva));
             parametros.Add(new SqlParameter("@modoPago", modoPago));
-            
-            if (DataBaseHelper.ExecuteNonQuery(nombreSPI, parametros.ToArray()) == 0)
-            {
-                throw new Exception(Constantes.mensajeError);
-            }
-            
+
+           return (int)DataBaseHelper.ExecuteScalar(nombreSPI, parametros.ToArray());
         }
         public string validar()
         {

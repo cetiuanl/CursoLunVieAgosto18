@@ -8,8 +8,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CD", "CD\CD.csproj", "{F7EB203C-6A91-4E97-8A68-C8ACC7019F81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoVenta", "PuntoVenta\PuntoVenta.csproj", "{1EF11CDC-35E4-40E3-B278-5C6B16E6B29B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5A1B4FA2-9393-4112-8D56-96934DEFFEEF} = {5A1B4FA2-9393-4112-8D56-96934DEFFEEF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasUnitarias", "PruebasUnitarias\PruebasUnitarias.csproj", "{88D2C610-C8B8-41CA-8D74-8523E08BB6F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PuntoVentaWeb", "PuntoVentaWeb\PuntoVentaWeb.csproj", "{5A1B4FA2-9393-4112-8D56-96934DEFFEEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +38,10 @@ Global
 		{88D2C610-C8B8-41CA-8D74-8523E08BB6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88D2C610-C8B8-41CA-8D74-8523E08BB6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88D2C610-C8B8-41CA-8D74-8523E08BB6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A1B4FA2-9393-4112-8D56-96934DEFFEEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A1B4FA2-9393-4112-8D56-96934DEFFEEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A1B4FA2-9393-4112-8D56-96934DEFFEEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A1B4FA2-9393-4112-8D56-96934DEFFEEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

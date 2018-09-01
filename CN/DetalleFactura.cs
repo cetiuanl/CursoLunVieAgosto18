@@ -21,17 +21,14 @@ namespace CN
         public int idProducto { get; private set; }
         public int cantidad { get; private set; }
         public decimal precioUnitario { get; private set; }
-        public decimal precioImporte {
-            get
-            {
-                return cantidad * precioUnitario;
-            }
-        }
+        public decimal precioImporte => cantidad * precioUnitario;
+         
         #endregion
 
         #region Constructores
-        public DetalleFactura(int idProducto,int cantidad, decimal precioUnitario)
+        public DetalleFactura(int folio, int idProducto,int cantidad, decimal precioUnitario)
         {
+            this.folio = folio;
             this.idProducto = idProducto;
             this.cantidad = cantidad;
             this.precioUnitario = precioUnitario;
@@ -51,6 +48,7 @@ namespace CN
         public void guardar()
         {
             List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@folio", folio));
             parametros.Add(new SqlParameter("@idProducto", idProducto));
             parametros.Add(new SqlParameter("@cantidad", cantidad));
             parametros.Add(new SqlParameter("@precioUnitario", precioUnitario));
